@@ -1,7 +1,12 @@
 D:\Yao\src\main\java\com\dms\pojo\projectException.java
 D:\Yao\src\main\java\com\dms\utils\projectExceptionHandle.java
 D:\Yao\src\main\java\com\dms\pojo\user.java
+D:\Yao\src\main\java\com\dms\service\medService.java
+D:\Yao\src\main\java\com\dms\service\Imp\medServiceImp.java
+D:\Yao\src\main\java\com\dms\mapper\medMapper.java
 D:\Yao\src\main\java\com\dms\web\dmsController.java
 D:\Yao\src\main\java\com\dms\pojo\medicine.java
+D:\Yao\src\main\java\com\dms\utils\Page.java
+D:\Yao\src\main\java\com\dms\utils\NavigationTag.java
 D:\Yao\src\main\java\com\dms\pojo\category.java
 D:\Yao\src\main\java\com\dms\pojo\selldetail.java
