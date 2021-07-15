@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dms.mapper.medMapper">
+
+    <insert id="addMedicine" parameterType="com.dms.pojo.medicine">
+        INSERT INTO tb_medicine(medNo,name,factoryAdd,description,price,medCount,photoPath,categoryId)
+        VALUES(#{medNo},#{name},#{factoryAdd},#{description},#{price},#{medCount},#{Path},#{categoryId})
+    </insert>
+
+    <select id="findAllCategory" resultType="com.dms.pojo.category">
+        SELECT *FROM tb_category
+        <if test="keyWord!=null adn keyWord !=''">
+            where name like '%${keyWord}%' or factoryAdd like '${keyWord}'
+        </if>
+    </select>
+
+    <select id="findAllMedicine" resultType="com.dms.pojo.medicine">
+        select *from tb_medicine
+    </select>
+
+    <delete id="deleteMedicineById" parameterType="int">
+        DELETE FROM tb_medicine WHERE id =#{id}
+    </delete>
+
+    <select id="findMedicineById" parameterType="int" resultType="com.dms.pojo.medicine">
+        select *from tb_medicine where id = #{id}
+    </select>
+
+    <update id="updateMedicineById" parameterType="com.dms.pojo.medicine">
+        UPDATE tb_medicine SET medCount=#{medCount},factoryAdd=#{factoryAdd},description=#{description} WHERE medNo=#{medNo}
+    </update>
+
+</mapper>

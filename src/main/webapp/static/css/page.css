@@ -1,0 +1,17 @@
+.pagination {
+    list-style-type: none;
+}
+.pagination li{
+    float: right;
+    padding-left: 10px;
+    text-align: center;
+    height: 20px;
+    width: 55px;
+    background: lawngreen;
+}
+.sr-only{
+
+}
+.active{
+    text-align: center;
+}
