@@ -25,7 +25,7 @@
           <td class="tb_tl">库存数量</td>
           <td class="tb_tl">出厂地址</td>
         </tr>
-
+		<c:forEach items="${list}" var="medicine">
 	        	<tr bgcolor="#FFFFFF">
 	        			<td>${medicine.id}</td>
 	        			<td>${medicine.medNo}</td>
@@ -34,7 +34,7 @@
 	        			<td>${medicine.medCount}</td>
 	        			<td>${medicine.factoryAdd}</td>
 	        	</tr>
-
+		</c:forEach>
       </table><br>
       </td>
 		</tr>

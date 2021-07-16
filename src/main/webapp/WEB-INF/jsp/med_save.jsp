@@ -54,7 +54,7 @@
         <tr>
           <td align="right">图片：</td>
           <td align="left">
-          	<input type="file" name="photoPath"/>
+          	<input type="file" name="file"/>
           </td>
         </tr>
         <tr>

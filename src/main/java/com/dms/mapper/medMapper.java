@@ -9,10 +9,11 @@ import java.util.List;
 public interface medMapper {
     void addMedicine(medicine medicine);
     List<category> findAllCategory();
-    List<medicine> findAllMedicine();
+    List<medicine> findAllMedicine(String keyWord);
     void  deleteMedicineById(int id);
     medicine findMedicineById(int id);
     void updateMedicineById(medicine medicine);
-    List<medicine> findMedicineByNameOrAddress(String keyWord);
-    medicine findAdvanced(medicine medicine);
+    List<medicine> findAdvanced(medicine medicine);
+    List<medicine> findByCount(int type,int count);
+    medicine findDetailed(int id );
 }

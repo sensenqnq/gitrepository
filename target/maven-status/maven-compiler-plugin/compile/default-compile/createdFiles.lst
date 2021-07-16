@@ -9,4 +9,5 @@ com\dms\utils\NavigationTag.class
 com\dms\utils\Page.class
 com\dms\pojo\projectException.class
 com\dms\utils\projectExceptionHandle.class
+com\dms\pojo\paging.class
 com\dms\service\medService.class

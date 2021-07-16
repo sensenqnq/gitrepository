@@ -1,32 +1,38 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
+%>
 <html>
   <head>
     <title></title>	
-	<link rel="stylesheet" type="text/css" href="../images/styles.css">	
+	<link rel="stylesheet" type="text/css" href="../../static/images/styles.css">
   </head>
   <body>
     <div class="div1">
 		<table width="100%" cellpadding="0" cellspacing="0" border="0"
 			align="center">
 			<tr>
-				<td class="td_title1">��ǰλ�á�:ҽҩ����&gt;&gt; �鿴���</td>
+				<td class="td_title1">当前位置·:医药管理&gt;&gt; 查看库存</td>
 			</tr>
 			<tr>
 				<td bgcolor="#FFFFFF" height="100" valign="top">
 					<br>
-       <form action="../../WEB-INF/jsp/med_list_nopaging.html" method="post">
+       <form action="<%=basePath%>/baseData/Count" method="post">
     	<input type="hidden" name="command" value="QueryMedCount" />
       <table border="0" align="center" width="450">
         <tr>
           <td align="center">
-          	���������
+			  库存数量：
           	<select name="type">
 				<option value="0">=</option>
 				<option value="1">&gt;</option>
 				<option value="-1">&lt;</option>
 			</select>
 			<input type="text" name="count" size="5" />
-			<input type="submit" value="��ѯ"/>
+			<input type="submit" value="查询"/>
           </td>
         </tr>
       </table>

@@ -4,18 +4,18 @@
 
     <insert id="addMedicine" parameterType="com.dms.pojo.medicine">
         INSERT INTO tb_medicine(medNo,name,factoryAdd,description,price,medCount,photoPath,categoryId)
-        VALUES(#{medNo},#{name},#{factoryAdd},#{description},#{price},#{medCount},#{Path},#{categoryId})
+        VALUES(#{medNo},#{name},#{factoryAdd},#{description},#{price},#{medCount},#{PhotoPath},#{categoryId})
     </insert>
 
     <select id="findAllCategory" resultType="com.dms.pojo.category">
         SELECT *FROM tb_category
-        <if test="keyWord!=null adn keyWord !=''">
-            where name like '%${keyWord}%' or factoryAdd like '${keyWord}'
-        </if>
     </select>
 
-    <select id="findAllMedicine" resultType="com.dms.pojo.medicine">
+    <select id="findAllMedicine" parameterType="string" resultType="com.dms.pojo.medicine">
         select *from tb_medicine
+        <if test="keyWord!=null and keyWord !=''">
+            where name like '%${keyWord}%' or factoryAdd like '%${keyWord}%'
+        </if>
     </select>
 
     <delete id="deleteMedicineById" parameterType="int">
@@ -30,4 +30,34 @@
         UPDATE tb_medicine SET medCount=#{medCount},factoryAdd=#{factoryAdd},description=#{description} WHERE medNo=#{medNo}
     </update>
 
+    <select id="findAdvanced" parameterType="com.dms.pojo.medicine" resultType="com.dms.pojo.medicine">
+        select *from tb_medicine
+        where medNo like '%${medNo}%'
+        <if test="name != null and name !=''">
+        and name like '%${name}%'
+        </if>
+        <if test="factoryAdd != null and factoryAdd !=''">
+        and factoryAdd like '%${factoryAdd}%'
+        </if>
+        <if test="description != null and description !=''">
+        and description like '%${description}%'
+        </if>
+    </select>
+
+    <select id="findByCount" parameterType="int" resultType="medicine">
+        select *from tb_medicine where
+        <if test="param1 == -1">
+            medCount &lt; #{param2}
+        </if>
+        <if test="param1 == 0">
+            medCount = #{param2}
+        </if>
+        <if test="param1 == 1">
+            medCount &gt; #{param2}
+        </if>
+    </select>
+    <select id="findDetailed" parameterType="int" resultType="medicine">
+        select a.*,b.`name` categoryName,COUNT(c.sellCount) count from tb_medicine a,tb_category b,tb_selldetail c
+        where a.id = #{id} AND b.id=a.categoryId AND c.medid = #{id}
+    </select>
 </mapper>

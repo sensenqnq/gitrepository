@@ -58,7 +58,7 @@
 				  <td>${medicine.price}元</td>
 				  <td>${medicine.medCount}</td>
 				  <td>${medicine.factoryAdd}</td>
-				  <td><a href="<%=basePath%>/baseData/med_update.action/${medicine.id}">修改</a>&nbsp; <a href="<%=basePath%>med_list">删除</a> </td>
+				  <td><a href="<%=basePath%>/baseData/med_update/${medicine.id}">修改</a>&nbsp; <a href="<%=basePath%>/baseData/deleteMedicine/${medicine.id}">删除</a> <a href="<%=basePath%>/baseData/checkMedicine/${medicine.id}">查看</a></td>
 		  </tr>
 		  </c:forEach>
 	        	<tr bgcolor="#FFFFFF">		        

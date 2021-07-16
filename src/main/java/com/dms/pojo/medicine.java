@@ -8,7 +8,25 @@ public class medicine {
     private String description;
     private double price;
     private int medCount;
-    private String Path;
+    private String PhotoPath;
+    private String categoryName;
+    private int count;
+
+    public String getCategoryName() {
+        return categoryName;
+    }
+
+    public void setCategoryName(String categoryName) {
+        this.categoryName = categoryName;
+    }
+
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
+    }
 
     public int getId() {
         return id;
@@ -66,12 +84,12 @@ public class medicine {
         this.medCount = medCount;
     }
 
-    public String getPath() {
-        return Path;
+    public String getPhotoPath() {
+        return PhotoPath;
     }
 
-    public void setPath(String path) {
-        Path = path;
+    public void setPhotoPath(String photoPath) {
+        PhotoPath = photoPath;
     }
 
     public int getCategoryId() {
