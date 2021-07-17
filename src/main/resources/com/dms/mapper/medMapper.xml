@@ -56,8 +56,42 @@
             medCount &gt; #{param2}
         </if>
     </select>
+
     <select id="findDetailed" parameterType="int" resultType="medicine">
         select a.*,b.`name` categoryName,COUNT(c.sellCount) count from tb_medicine a,tb_category b,tb_selldetail c
         where a.id = #{id} AND b.id=a.categoryId AND c.medid = #{id}
+    </select>
+
+    <select id="findMedicineMedNo" parameterType="string" resultType="string">
+        select medNo from tb_medicine where medNo = #{param1}
+    </select>
+
+    <insert id="addOrder" parameterType="medicine">
+        INSERT INTO tb_order(medNo,name,price,count,medCount,factoryAdd,description,photoPath)
+        VALUES(#{medNo},#{name},#{price},#{count},0,#{factoryAdd},#{description},#{photoPath})
+    </insert>
+
+    <select id="findAllOrder" parameterType="string" resultType="com.dms.pojo.medicine">
+        select a.*,b.medCount from tb_order a,tb_medicine b WHERE a.medNo=b.medNo
+        <if test="keyWord!=null and keyWord !=''">
+            and (a.name like '%${keyWord}%' or a.factoryAdd like '%${keyWord}%')
+        </if>
+    </select>
+
+    <select id="findOrderId" parameterType="int" resultType="medicine">
+        select a.*,b.medCount from tb_order a,tb_medicine b
+        where b.id = #{id} AND b.id=a.id
+    </select>
+
+    <update id="modCount" parameterType="medicine">
+        update tb_order set count = #{count} where medNo = #{medNo}
+    </update>
+
+    <delete id="deleteOrderById" parameterType="int">
+        DELETE FROM tb_order WHERE id =#{id}
+    </delete>
+
+    <select id="findUser" parameterType="user" resultType="user">
+        select *from tb_user where username=#{username} and password=#{password}
     </select>
 </mapper>

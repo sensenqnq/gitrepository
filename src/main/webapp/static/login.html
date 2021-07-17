@@ -1,7 +1,8 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html locale="true">
+<html>
   <head>
-    <title>ÓÃ»§µÇÂ¼</title>
+    <title>ç”¨æˆ·ç™»å½•</title>
+	  <meta charset="utf-8">
+	  <script src="/static/js/jquery.js" type="text/javascript" charset="utf-8"></script>
 	<style type="text/css">
 		<!--
 		body{
@@ -23,9 +24,24 @@
 	</style>
 	<script language="javaScript">
 		if(self != top){
-			alert("µÇÂ¼³¬Ê±");
+			alert("ç™»å½•è¶…æ—¶");
 			top.location = self.location;
-		}		
+		}
+		function ff() {
+			$.ajax({
+				type:"post",
+				url:"/baseData/login",
+				data:{"username":$("#username").val(),"password":$("#password").val()},
+				success:function(data){
+					if (data=="b"){
+						return true;
+					}else {
+						alert("ç”¨æˆ·åæˆ–å¯†ç é”™è¯¯")
+						return false;
+					}
+				}
+			})
+		}
 	</script>
   </head>
   <body>
@@ -34,7 +50,7 @@
       	<tr>
           <td colspan="2" align="left" valign="top">
          		<img src="images/login_zh.jpg" border="0" usemap="#Map">
-         		<form action = "manager.html" method="get">
+         		<form action = "/static/manager.html" method="get" onsubmit="return ff()">
 		    	<table border="0" class="tb1">
 			      		 <tr>
 			          		<td colspan="2" align="center">
@@ -42,27 +58,28 @@
 			          		</td>
 			          	</tr>
 			        <tr>
-			          <td align="right">ÓÃ»§Ãû£º</td>
-			          <td><input type=="text" value="admin" styleClass="it"/></td>
+			          <td align="right">ç”¨æˆ·åï¼š</td>
+			          <td><input type="text" placeholder="ç”¨æˆ·å" id="username" styleClass="it"/></td>
 			        </tr>
 			        <tr>
-			          <td align="right">ÃÜÂë£º</td>
-			          <td><input type="password" value="admin" styleClass="it"/></td>
+			          <td align="right">å¯†ç ï¼š</td>
+			          <td><input type="password" placeholder="å¯†ç " id="password" styleClass="it"/></td>
 			        </tr>
 			        <tr>
 			          <td colspan="2" align="center" height="30">
-			         	 <input type="submit" value="µÇÂ¼"/>
-			         	 <input type="reset" value="¸´Ô­"/>
+			         	 <input type="submit" value="ç™»å½•"/>
+			         	 <input type="reset" value="å¤åŸ"/>
 			          </td>
 			        </tr>
 			      </table>
-		    </html:form>
+		    </form>
           </td>
         </tr>
   </table>
   
-<map name="Map"><area shape="rect" coords="265,140,323,154" href="<html:rewrite page="/language.do?lan=zh"/>">
-<area shape="rect" coords="335,138,406,153" href="<html:rewrite page="/language.do?lan=en"/>">
-</map></body>
+<!--<map name="Map"><area shape="rect" coords="265,140,323,154" href="<html:rewrite page="/language.do?lan=zh"/>">-->
+<!--<area shape="rect" coords="335,138,406,153" href="<html:rewrite page="/language.do?lan=en"/>">-->
+<!--</map>-->
+  </body>
 </html>
 

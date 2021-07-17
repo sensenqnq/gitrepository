@@ -1,3 +1,4 @@
+<%@page language="java" contentType="text/html; ISO-8859-1" pageEncoding="UTF-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 	<head>
@@ -21,7 +22,7 @@
 			</tr>
 			<tr>
 				<td background="/static/images/top_bg1.jpg" width="" height="40" class="wel">
-					#{username}
+					${user.username}
 					，欢迎登录医药管理系统！
 				</td>
 				<td background="/static/images/top_bg1.jpg" width="60" align="center">

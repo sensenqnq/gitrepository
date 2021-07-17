@@ -4,6 +4,7 @@ import com.dms.mapper.medMapper;
 import com.dms.pojo.category;
 import com.dms.pojo.medicine;
 import com.dms.pojo.paging;
+import com.dms.pojo.user;
 import com.dms.service.medService;
 import com.dms.utils.Page;
 import com.github.pagehelper.PageHelper;
@@ -70,6 +71,44 @@ public class medServiceImp implements medService {
     @Override
     public medicine findDetailed(int id ) {
         return mapper.findDetailed(id);
+    }
+
+    @Override
+    public String findMedicineMedNo(String medNo) {
+        return mapper.findMedicineMedNo(medNo);
+    }
+
+    @Override
+    public void addOrder(medicine medicine) {
+        mapper.addOrder(medicine);
+    }
+
+    @Override
+    public Page<medicine> findAllOrder(String keyWord, paging pg) {
+        PageHelper.startPage(pg.getPage(),pg.getRows());
+        List<medicine> list = mapper.findAllOrder(keyWord);
+        PageInfo<medicine>pageInfo = new PageInfo<>(list);
+        return new Page<>((int)pageInfo.getTotal(),pageInfo.getPageNum(), pageInfo.getPageSize(), pageInfo.getList());
+    }
+
+    @Override
+    public medicine findOrderId(int id) {
+        return mapper.findOrderId(id);
+    }
+
+    @Override
+    public void modCount(medicine medicine) {
+        mapper.modCount(medicine);
+    }
+
+    @Override
+    public user findUser(user user) {
+        return mapper.findUser(user);
+    }
+
+    @Override
+    public void deleteOrderById(int id) {
+        mapper.deleteOrderById(id);
     }
 
 

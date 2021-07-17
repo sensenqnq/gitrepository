@@ -1,8 +1,8 @@
 package com.dms.pojo;
 
 public class paging {
-    private Integer page = 1;
-    private Integer rows=10;
+    private Integer page = 1;//当前页码数
+    private Integer rows=10;//显示条数
 
     public Integer getPage() {
         return page;

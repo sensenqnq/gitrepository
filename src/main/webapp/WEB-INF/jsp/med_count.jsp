@@ -1,5 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
@@ -8,7 +7,18 @@
 <html>
   <head>
     <title></title>	
-	<link rel="stylesheet" type="text/css" href="../../static/images/styles.css">
+	<link rel="stylesheet" type="text/css" href="/static/images/styles.css">
+	  <script src="/static/js/jquery.js" type="text/javascript" charset="utf-8"></script>
+	  <script type="text/javascript">
+		  function sub() {
+			if (isNaN($("#co").val())){
+				return true
+			}else {
+				alert("必须填入数字");
+				return false;
+			}
+		  }
+	  </script>
   </head>
   <body>
     <div class="div1">
@@ -20,7 +30,7 @@
 			<tr>
 				<td bgcolor="#FFFFFF" height="100" valign="top">
 					<br>
-       <form action="<%=basePath%>/baseData/Count" method="post">
+       <form action="<%=basePath%>/baseData/Count" method="post" onsubmit="return sub()">
     	<input type="hidden" name="command" value="QueryMedCount" />
       <table border="0" align="center" width="450">
         <tr>
@@ -31,7 +41,7 @@
 				<option value="1">&gt;</option>
 				<option value="-1">&lt;</option>
 			</select>
-			<input type="text" name="count" size="5" />
+			<input type="text" name="count" id="co" size="5" />
 			<input type="submit" value="查询"/>
           </td>
         </tr>

@@ -5,12 +5,24 @@
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
             + path + "/";
 %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
+    <meta charset="utf-8" />
     <title></title>
-    <link rel="stylesheet" type="text/css" href="/static/images/styles.css">
-</head>
+    <link href="/static/images/styles.css" type="text/css" rel="stylesheet">
+    <script src="/static/js/jquery.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+        function warning() {
+            if ($("#a").val()!="" || $("#b").val()!="" || $("#c").val()!="" || $("#d").val()!="" ) {
+                alert("成功");
+                return true;
+            } else {
+                alert("必须填入四个条件")
+                return false;
+            }
+        }
+    </script>
+    </head>
 <body>
 <div class="div1">
     <table width="100%" cellpadding="0" cellspacing="0" border="0" align="center">
@@ -20,7 +32,7 @@
         <tr>
             <td bgcolor="#FFFFFF" height="50">
                 <br>
-                <form action="<%=basePath%>/baseData/Advanced.action" method="post" focus="name" id="myform">
+                <form action="<%=basePath%>/baseData/Advanced.action" method="post" focus="name" onsubmit="return warning()">
                     <input type="hidden" name="command" value="query"/>
                     <table border="0" align="center" width="450">
                         <tr>
@@ -54,17 +66,6 @@
     </table>
 </div>
 
-<script type="text/javascript" src="<%=basePath%>/static/js/jquery.min.js">
-    // var obj = document.getElementById("myform");
-    // var check =function() {
-    //     if (1===1) {
-    //         alert("成功");
-    //         return true;
-    //     } else {
-    //         alert("必须填入四个条件")
-    //         return false;
-    //     }
-    // }
-</script>
+
 </body>
 </html>
