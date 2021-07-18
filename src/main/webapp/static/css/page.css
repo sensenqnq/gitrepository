@@ -2,12 +2,14 @@
     list-style-type: none;
 }
 .pagination li{
-    float: right;
+    position: relative;
+    left: 300px;
+    float: left;
+    margin-right: 6px;
     padding-left: 10px;
     text-align: center;
     height: 20px;
     width: 55px;
-    background: lawngreen;
 }
 .sr-only{
 

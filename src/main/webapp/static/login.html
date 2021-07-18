@@ -30,7 +30,7 @@
 		function ff() {
 			$.ajax({
 				type:"post",
-				url:"/baseData/login",
+				url:"/dms/login",
 				data:{"username":$("#username").val(),"password":$("#password").val()},
 				success:function(data){
 					if (data=="b"){

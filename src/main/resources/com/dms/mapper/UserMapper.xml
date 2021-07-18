@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dms.mapper.UserMapper">
+    <insert id="addUser" parameterType="com.dms.pojo.user">
+        insert into tb_user(id,username,password,createTime)
+        values (#{id},#{username},#{password},#{createTime})
+    </insert>
+    <select id="findAllUser" resultType="com.dms.pojo.user">
+        select id,username,createTime from tb_user
+    </select>
+    <delete id="deleteUser" parameterType="int" >
+        delete from tb_user where id = #{id}
+    </delete>
+    <update id="updatePassword" parameterType="string">
+        update tb_user set password = #{password} where id = #{id}
+    </update>
+</mapper>

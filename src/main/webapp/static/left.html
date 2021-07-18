@@ -38,7 +38,7 @@
     <table border="0" width="200" height="100%" align="right" cellSpacing="0" cellPadding="0" bgcolor="#E0FBC4">
     	<!--药品管理-->
     	<tr>
-			<td onClick="menu(0)" height="33" background="images/m1.jpg">
+			<td onClick="menu(0)" height="33" background="/static/images/m1.jpg">
 				<font class="m1">医药管理</font>
 			</td>
 		</tr>
@@ -47,22 +47,22 @@
 				<table width="80%" align="center">
 					<tr>
 						<td height="22" onmouseover="this.style.backgroundColor='#ffffff'" onmouseout="this.style.backgroundColor=''">
-							<a href="/baseData/med_save.action" target="main" class="sub1">添加药品</a>
+							<a href="/dms/med_save.action" target="main" class="sub1">添加药品</a>
 						</td>
 					</tr>
 					<tr>
 						<td height="22" onmouseover="this.style.backgroundColor='#ffffff'" onmouseout="this.style.backgroundColor=''">
-							<a href="/baseData/med_list.action" target="main" class="sub1">查看药品							</a>
+							<a href="/dms/med_list.action" target="main" class="sub1">查看药品							</a>
 						</td>
 					</tr>
 					<tr>
 						<td height="22" onmouseover="this.style.backgroundColor='#ffffff'" onmouseout="this.style.backgroundColor=''">
-							<a href="/baseData/med_query.action" target="main" class="sub1">高级查询</a>
+							<a href="/dms/med_query.action" target="main" class="sub1">高级查询</a>
 						</td>
 					</tr>
 					<tr>
 						<td height="22" onmouseover="this.style.backgroundColor='#ffffff'" onmouseout="this.style.backgroundColor=''">
-							<a href="/baseData/med_count.action" target="main" class="sub1">查看库存</a>
+							<a href="/dms/med_count.action" target="main" class="sub1">查看库存</a>
 						</td>
 					</tr>
 				</table>
@@ -70,7 +70,7 @@
 		</tr>
     	<!--类别管理-->
     	<tr>
-			<td onClick="menu(1)" height="33" background="images/m1.jpg">
+			<td onClick="menu(1)" height="33" background="/static/images/m1.jpg">
 				<font class="m1">
 					类别管理
 				</font>
@@ -81,12 +81,12 @@
 				<table width="80%" align="center">
 					<tr>
 						<td height="22" onmouseover="this.style.backgroundColor='#ffffff'" onmouseout="this.style.backgroundColor=''">
-							<a href="baseData/category_add.html" target="main" class="sub1">添加类别</a>
+							<a href="/dms/list1.action" target="main" class="sub1">添加类别</a>
 						</td>
 					</tr>
 					<tr>
 						<td height="22" onmouseover="this.style.backgroundColor='#ffffff'" onmouseout="this.style.backgroundColor=''">
-							<a href="baseData/category_list.html" target="main" class="sub1">查看类别</a>
+							<a href="/dms/list.action" target="main" class="sub1">查看类别</a>
 						</td>
 					</tr>					
 				</table>
@@ -94,7 +94,7 @@
 		</tr>
 		<!--购买药品-->
     	<tr>
-			<td onClick="menu(2)" height="33" background="images/m1.jpg">
+			<td onClick="menu(2)" height="33" background="/static/images/m1.jpg">
 				<font class="m1">
 					购买药品
 				</font>
@@ -105,7 +105,7 @@
 				<table width="80%" align="center">
 					<tr>
 						<td height="22" onmouseover="this.style.backgroundColor='#ffffff'" onmouseout="this.style.backgroundColor=''">
-							<a href="baseData/med_sell.html" target="main" class="sub1">选购药品</a>
+							<a href="/dms/baseData/med_sell.action" target="main" class="sub1">选购药品</a>
 						</td>
 					</tr>					
 				</table>
@@ -113,7 +113,7 @@
 		</tr>
 		<!--销售管理-->
     	<tr>
-			<td onClick="menu(3)" height="33" background="images/m1.jpg">
+			<td onClick="menu(3)" height="33" background="/static/images/m1.jpg">
 				<font class="m1">
 					销售管理
 				</font>
@@ -124,12 +124,12 @@
 				<table width="80%" align="center">
 					<tr>
 						<td height="22" onmouseover="this.style.backgroundColor='#ffffff'" onmouseout="this.style.backgroundColor=''">
-							<a href="sell/sell_list.html" target="main" class="sub1">查看明细</a>
+							<a href="/selldetail/sell_list.action" target="main" class="sub1">查看明细</a>
 						</td>
 					</tr>
 					<tr>
 						<td height="22" onmouseover="this.style.backgroundColor='#ffffff'" onmouseout="this.style.backgroundColor=''">
-							<a href="sell/sell_query.html" target="main" class="sub1">日期查询</a>
+							<a href="/dms/list2.action" target="main" class="sub1">日期查询</a>
 						</td>
 					</tr>					
 				</table>
@@ -138,7 +138,7 @@
 		
 	<!--系统管理-->
     	<tr>
-			<td onClick="menu(5)" height="33" background="images/m1.jpg">
+			<td onClick="menu(5)" height="33" background="/static/images/m1.jpg">
 				<font class="m1">
 					系统管理
 				</font>
@@ -149,29 +149,29 @@
 				<table width="80%" align="center">
 					<tr>
 						<td height="22" onmouseover="this.style.backgroundColor='#ffffff'" onmouseout="this.style.backgroundColor=''">
-							<a href="system/user_add.html" target="main" class="sub1">添加管理员</a>
+							<a href="/dms/user_add.action" target="main" class="sub1">添加管理员</a>
 						</td>
 					</tr>
 					<tr>
 						<td height="22" onmouseover="this.style.backgroundColor='#ffffff'" onmouseout="this.style.backgroundColor=''">
-							<a href="system/user_list.html" target="main" class="sub1">查看所有管理员</a>
+							<a href="/dms/system/user_list.action" target="main" class="sub1">查看所有管理员</a>
 						</td>
 					</tr>
 					<tr>
 						<td height="22" onmouseover="this.style.backgroundColor='#ffffff'" onmouseout="this.style.backgroundColor=''">
-							<a href="system/user_password.html" target="main" class="sub1">修改密码</a>
+							<a href="/dms/user_password" target="main" class="sub1">修改密码</a>
 						</td>
 					</tr>					
 					<tr>
 						<td height="22" onmouseover="this.style.backgroundColor='#ffffff'" onmouseout="this.style.backgroundColor=''">
-							<a href="login.html" target="_top" class="sub1">退出系统</a>
+							<a href="/static/login.html" target="_top" class="sub1">退出系统</a>
 						</td>
 					</tr>
 				</table>
 			</td>
 		</tr>
 		<tr>
-			<td onClick="menu(6)" height="33" background="images/m1.jpg">
+			<td onClick="menu(6)" height="33" background="/static/images/m1.jpg">
 				<font class="m1">
 					进货/需求管理
 				</font>
@@ -182,12 +182,12 @@
 				<table width="80%" align="center">
 					<tr>
 						<td height="22" onmouseover="this.style.backgroundColor='#ffffff'" onmouseout="this.style.backgroundColor=''">
-							<a href="/baseData/req_list.action" target="main" class="sub1">查看进货</a>
+							<a href="/dms/req_list.action" target="main" class="sub1">查看进货</a>
 						</td>
 					</tr>
 					<tr>
 						<td height="22" onmouseover="this.style.backgroundColor='#ffffff'" onmouseout="this.style.backgroundColor=''">
-							<a href="/baseData/req_add" target="main" class="sub1">添加进货</a>
+							<a href="/dms/req_add" target="main" class="sub1">添加进货</a>
 						</td>
 					</tr>
 				</table>

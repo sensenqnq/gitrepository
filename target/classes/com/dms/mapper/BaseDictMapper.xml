@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dms.mapper.BaseDictMapper">
+    <select id="findItemNameByTypeCode" parameterType="queryVo" resultType="category">
+        select * from tb_category
+    </select>
+    <select id="findCountByPage" parameterType="queryVo" resultType="int">
+        select count(*) from tb_category
+    </select>
+    <delete id="deleteCustomerById" parameterType="string">
+    delete from tb_category where id = #{id}
+</delete>
+    <insert id="insertCategory" parameterType="com.dms.pojo.category">
+        insert into tb_category(name,description,createTime) VALUES (#{name},#{description},#{createTime})
+    </insert>
+    <select id="findSelldetailByTime" parameterType="queryVo" resultType="selldetail">
+        select * from tb_selldetail where sellTime between #{begin} and #{end}
+    </select>
+    <select id="findCategoryById" parameterType="string" resultType="com.dms.pojo.category">
+        select * from tb_category where id=#{id}
+    </select>
+    <update id="updateCategoryById" parameterType="string">
+          update tb_category set name = #{name,jdbcType = VARCHAR},description=#{description,jdbcType = VARCHAR} where id =#{id,jdbcType = VARCHAR}
+    </update>
+</mapper>
