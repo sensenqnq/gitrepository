@@ -30,7 +30,7 @@ public class MedicineServiceImpl implements MedicineService {
     }
 
     @Override
-    public void updateMedicineCount(int id,int sell) {
-
+    public void updateMedicineCount(medicine medicine) {
+        medicineMapper.updateMedicineCount(medicine);
     }
 }

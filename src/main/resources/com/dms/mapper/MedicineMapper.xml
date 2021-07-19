@@ -13,7 +13,7 @@
     <select id="findMedicineById" parameterType="int" resultType="com.dms.pojo.medicine">
        select * from tb_medicine WHERE id = #{id}
     </select>
-    <update id="updateMedicineCount" parameterType="int">
-        update from tb_medicine set medCount = medCount - #{sell} where id = #{id}
+    <update id="updateMedicineCount" parameterType="medicine">
+        update  tb_medicine set medCount = medCount - #{medCount} where id = #{id}
     </update>
 </mapper>

@@ -80,6 +80,8 @@ public class medServiceImp implements medService {
 
     @Override
     public void addOrder(medicine medicine) {
+        medicine.setMedCount(0);
+        mapper.addMedicine(medicine);
         mapper.addOrder(medicine);
     }
 

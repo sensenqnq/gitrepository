@@ -46,20 +46,25 @@ public class dmsController {
         this.baseDictService = baseDictService;
     }
 
+
+    @GetMapping(value = "/manager")
+    public String toManager(){
+        return "manager";
+    }
     @PostMapping(value = "/login")
     @ResponseBody
     public String  login(user user,HttpServletRequest request){
-        request.getSession().setAttribute("user",user);
         user user1 = medService.findUser(user);
         if (user1==null){
             return "a";
         }
+        request.getSession().setAttribute("user",user);
         return "b";
     }
 
     @GetMapping(value = "/toTop1")
     public String loginManager(HttpServletRequest request,Model model){
-        User user = (User) request.getSession().getAttribute("user");
+        user user = (com.dms.pojo.user) request.getSession().getAttribute("user");
         model.addAttribute("user",user);
         return "top";
     }
@@ -216,14 +221,20 @@ public class dmsController {
         model.addAttribute("page",medicine);
         return "baseData/med_sell";
     }
-    @RequestMapping (value = "/sell/sell_add")
-    public String sellMedicine(@RequestParam(value = "id")int id,@RequestParam(value = "name") String name,@RequestParam(value = "price") double price,@RequestParam(value = "factoryAdd") String factoryAdd,Model model){
+    @RequestMapping (value = "/sell/sell_add/{id}/{name}/{price}/{factoryAdd}")
+    public String sellMedicine(@PathVariable(name = "id")int id,@PathVariable(name = "name") String name,@PathVariable(name = "price") double price,@PathVariable(name = "factoryAdd") String factoryAdd,Model model){
         medicine medicine = medicineService.findMedicineById(id);
-        model.addAttribute("name",medicine.getName());
-        model.addAttribute("price",medicine.getPrice());
-        model.addAttribute("factoryAdd",medicine.getFactoryAdd());
+        model.addAttribute("medicine",medicine);
         return  "sell/sell_add";
     }
+
+    @PostMapping(value = "/sell/sell_save")
+    public String sellSave(Model model,medicine medicine){
+        medicineService.updateMedicineCount(medicine);
+        return findMedicine("",model,new paging());
+    }
+
+
     @RequestMapping(value = "/user_add")
     public String toUser_add(){
         return "system/user_add";
@@ -250,12 +261,23 @@ public class dmsController {
     @RequestMapping (value = "/updatePassword")
     public String updatePassword(Model model, String password, String repassword,  paging paging, HttpServletRequest request){
         user user = (com.dms.pojo.user) request.getSession().getAttribute("user");
-        if (password.equals(repassword)){
-            user.setPassword(password);
-            userService.updatePassword(user);
-        }
-        return "system/user_password";
+            if (password.equals(repassword)){
+                user.setPassword(password);
+                userService.updatePassword(user);
+            }
+            return "system/user_password";
     }
+
+    @GetMapping(value = "/Verify")
+    @ResponseBody
+    public String VerifyPS(String ps,HttpServletRequest request){
+        user user = (com.dms.pojo.user) request.getSession().getAttribute("user");
+        if (user.getPassword().equals(ps)){
+            return "a";
+        }
+        return "b";
+    }
+
     @RequestMapping(value = "/user_password")
     public String toUser_password(){
         return "system/user_password";

@@ -8,5 +8,5 @@ import com.dms.utils.Page;
 public interface MedicineService {
     Page<medicine> findMedicineByName(String name, paging pg);
     medicine findMedicineById(int id);
-    void updateMedicineCount(int id,int sell);
+    void updateMedicineCount(medicine medicine);
 }

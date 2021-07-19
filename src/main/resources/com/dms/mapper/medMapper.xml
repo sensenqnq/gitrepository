@@ -67,14 +67,14 @@
     </select>
 
     <insert id="addOrder" parameterType="medicine">
-        INSERT INTO tb_order(medNo,name,price,count,medCount,factoryAdd,description,photoPath)
-        VALUES(#{medNo},#{name},#{price},#{count},0,#{factoryAdd},#{description},#{photoPath})
+        INSERT INTO tb_order(medNo,name,price,count,factoryAdd,description,photoPath)
+        VALUES(#{medNo},#{name},#{price},#{count},#{factoryAdd},#{description},#{photoPath})
     </insert>
 
     <select id="findAllOrder" parameterType="string" resultType="com.dms.pojo.medicine">
-        select a.*,b.medCount from tb_order a,tb_medicine b WHERE a.medNo=b.medNo
+        select a.*,b.medCount from tb_order a left JOIN tb_medicine b ON a.medNo=b.medNo
         <if test="keyWord!=null and keyWord !=''">
-            and (a.name like '%${keyWord}%' or a.factoryAdd like '%${keyWord}%')
+            WHERE a.name like '%${keyWord}%' or a.factoryAdd like '%${keyWord}%'
         </if>
     </select>
 

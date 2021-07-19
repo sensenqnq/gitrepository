@@ -20,7 +20,7 @@
       <table border="0" align="center" width="500">
         <tr>
           <td align="right">药品编码：</td>
-          <td align="left"><input type="text" value="${medNo}" name="medNo" disabled/></td>
+          <td align="left"><input type="text" value="${medNo}" name="medNo" readonly/></td>
         </tr>
         <tr>
           <td align="right">药品名称：</td>

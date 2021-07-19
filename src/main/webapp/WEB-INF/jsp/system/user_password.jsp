@@ -7,11 +7,28 @@ String path = request.getContextPath();
 String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
 + path + "/";
 %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
 <html>
   <head>
     <title></title>	
-	<link rel="stylesheet" type="text/css" href="../../../static/images/styles.css">
+	<link rel="stylesheet" type="text/css" href="/static/images/styles.css">
+      <script src="/static/js/jquery.js" type="text/javascript" charset="utf-8"></script>
+      <script type="text/javascript">
+          function hh() {
+            $.ajax({
+                type:"get",
+                url:"/dms/Verify",
+                data:{"ps":$("#ps1")},
+                success:function (data) {
+                    if (data==="b"){
+                        alert("原密码错误")
+                        return false;
+                    }
+                    return true;
+                }
+            })
+          }
+      </script>
   </head>
   <body>
   <div class="div1">
@@ -23,21 +40,21 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
 			<tr>
 				<td bgcolor="#FFFFFF" height="50">
 					<br>
-    <form action="<%=basePath%>/dms/updatePassword" method="post" >
+    <form action="<%=basePath%>/dms/updatePassword" method="post" onsubmit="return hh()">
     <input type="hidden" name="command" value="modifyPassword" />
       <table border="0" align="center" width="450">
         <tr>
           <td align="right">原密码：</td>
           <td align="left">          	
-          	<html:hidden property="id"/><input type="password" name=""/></td>
+          	<html:hidden property="id"/><input type="password" name="ps" id="ps1"/></td>
         </tr>
         <tr>
           <td align="right">密码 ：</td>
-          <td align="left"><input type="password" name=""/></td>
+          <td align="left"><input type="password" name="password"/></td>
         </tr>
          <tr>
           <td align="right">确认密码：</td>
-          <td align="left"><input type="password" name=""/></td>
+          <td align="left"><input type="password" name="repassword"/></td>
         </tr>
         <tr>
           <td align="center" colspan="2"><input type="submit" value="提交"/> </td>

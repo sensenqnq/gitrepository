@@ -11,8 +11,8 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
 <html>
   <head>
     <title></title>
-	<link rel="stylesheet" type="text/css" href="../../../static/images/styles.css">
-	  <link href="../../../static/css/page.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="/static/images/styles.css">
+	  <link href="/static/css/page1.css" rel="stylesheet">
   </head>
   <body>
   <div class="div1">

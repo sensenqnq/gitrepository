@@ -10,14 +10,7 @@
 	<link rel="stylesheet" type="text/css" href="/static/images/styles.css">
 	  <script src="/static/js/jquery.js" type="text/javascript" charset="utf-8"></script>
 	  <script type="text/javascript">
-		  function sub() {
-			if (isNaN($("#co").val())){
-				return true
-			}else {
-				alert("必须填入数字");
-				return false;
-			}
-		  }
+
 	  </script>
   </head>
   <body>
@@ -30,7 +23,7 @@
 			<tr>
 				<td bgcolor="#FFFFFF" height="100" valign="top">
 					<br>
-       <form action="<%=basePath%>/dms/Count" method="post" onsubmit="return sub()">
+       <form action="<%=basePath%>/dms/Count" method="post">
     	<input type="hidden" name="command" value="QueryMedCount" />
       <table border="0" align="center" width="450">
         <tr>

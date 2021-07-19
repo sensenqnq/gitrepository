@@ -11,8 +11,8 @@
 <html>
   <head>
     <title></title>
-    <link rel="stylesheet" type="text/css" href="../../../static/images/styles.css">
-	  <link href="../../../static/css/page.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/static/images/styles.css">
+	  <link href="/static/css/page.css" rel="stylesheet">
   </head>
   <body>
   <div class="div1">
@@ -29,7 +29,7 @@
           		<table border="0" width="100%">
           			<tr>
           				<td align="left">
-          					<form  action="<%=basePath%>/dms/baseData/med_sell" method="post"  class="blur_form">
+          					<form  action="<%=basePath%>/dms/baseData/med_sell.action" method="post"  class="blur_form">
           						模糊查询：<input name="keyWord" type="text" size="20"/>
           						<input type="submit" value="提交"/>
           					</form>
@@ -49,13 +49,13 @@
         </tr>
 		   <c:forEach  items="${page.rows}" var="med">
 	        		<tr bgcolor="#FFFFFF" >
-	        			<td>${med.id}</td>
+	        			<td>${med.medNo}</td>
 	        			<td>${med.name}</td>
-						<td>${med.medCount}</td>
-	        			<td>${med.price}</td>
+						<td>${med.price}</td>
+	        			<td>${med.medCount}</td>
 	        			<td>${med.factoryAdd}</td>
 	        			<td>
-	        				<a href="${pageContext.request.contextPath}/dms/sell/sell_add.action?id=${med.id}&name=${med.name}&price=${med.price}&factoryAdd=${med.factoryAdd}">购买</a>
+	        				<a href="${pageContext.request.contextPath}/dms/sell/sell_add/${med.id}/${med.name}/${med.price}/${med.factoryAdd}">购买</a>
 	        			</td>
 	        		</tr>	</c:forEach>
 		   <tr bgcolor="#FFFFFF">

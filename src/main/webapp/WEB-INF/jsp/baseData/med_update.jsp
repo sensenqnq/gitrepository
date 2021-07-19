@@ -25,7 +25,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
       <table border="0" align="center" width="450">
         <tr>
           <td align="right">药品编码</td>
-          <td align="left"><input type="text" name="medNo" value="${med.medNo}" disabled/></td>
+          <td align="left"><input type="text" name="medNo" value="${med.medNo}" readonly/></td>
         </tr>
         <tr>
           <td align="right">药品名称：</td>
